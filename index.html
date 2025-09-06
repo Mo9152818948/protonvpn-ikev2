@@ -1,57 +1,51 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ProtonVPN Servers</title>
-
-  <!-- PWA -->
-  <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="./1000002828.png">
-
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{--bg:#0f172a;--card:#1e293b;--fg:#f1f5f9;--muted:#94a3b8;--accent:#22c55e}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);min-height:100vh}
-    header{padding:16px;text-align:center;font-weight:700;font-size:20px}
-    main{padding:16px;max-width:980px;margin:auto}
-    .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .hint{color:var(--muted);font-size:14px;margin-top:8px}
-    .btn{background:var(--accent);color:#052e16;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+    body { background:#0b0f19; color:#fff; font-family:Tahoma, sans-serif; text-align:center; }
+    .container { max-width:600px; margin:40px auto; padding:20px; background:#111827; border-radius:12px; box-shadow:0 0 12px #000; }
+    h1 { font-size:24px; margin-bottom:10px; }
+    h2 { font-size:18px; margin:15px 0; }
+    .server { display:flex; justify-content:space-between; align-items:center; background:#1f2937; padding:12px; border-radius:8px; margin:10px 0; }
+    .server span { font-size:16px; }
+    button { background:#10b981; border:none; padding:6px 10px; border-radius:6px; color:#fff; cursor:pointer; }
+    button:hover { background:#059669; }
+    .footer { font-size:12px; margin-top:20px; color:#9ca3af; }
   </style>
 </head>
 <body>
-  <header>📡 ProtonVPN Servers</header>
+  <div class="container">
+    <h1>ProtonVPN Servers 📡</h1>
+    <h2>لیست سرورهای ProtonVPN</h2>
 
-  <main>
-    <div class="card">
-      <h2 style="margin:0 0 8px">لیست سرورهای ProtonVPN</h2>
-      <p class="hint">اینجا محتوای صفحه/جدول/فیلترهای خودت را قرار بده.</p>
-
-      <!-- دموی خیلی ساده؛ محتوای واقعی خودت را جایگزین کن -->
-      <ul id="list">
-        <li>🇬🇧 UK – London 23</li>
-        <li>🇩🇪 DE – Frankfurt 14</li>
-        <li>🇺🇸 US – New York 09</li>
-      </ul>
-
-      <div style="margin-top:14px">
-        <button class="btn" onclick="location.reload()">بروزرسانی</button>
-      </div>
+    <div class="server">
+      <span>🇬🇧 UK – London 23</span>
+      <button onclick="copyText('185.12.64.23')">کپی</button>
+    </div>
+    <div class="server">
+      <span>🇩🇪 DE – Frankfurt 14</span>
+      <button onclick="copyText('185.12.64.14')">کپی</button>
+    </div>
+    <div class="server">
+      <span>🇺🇸 US – New York 09</span>
+      <button onclick="copyText('185.12.64.9')">کپی</button>
     </div>
 
-    <p class="hint">نکته: برای نصب روی موبایل، از منوی مرورگر گزینه «Add to Home screen / Install app» را بزن.</p>
-  </main>
+    <p class="footer">📌 برای نصب روی موبایل، از منوی مرورگر گزینه <b>Add to Home Screen</b> را بزن.</p>
+  </div>
 
   <script>
+    function copyText(ip) {
+      navigator.clipboard.writeText(ip);
+      alert("آی‌پی کپی شد: " + ip);
+    }
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
-          .catch(err => console.log("SW registration failed:", err));
-      });
+      navigator.serviceWorker.register("service-worker.js");
     }
   </script>
 </body>
