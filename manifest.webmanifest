@@ -1,0 +1,14 @@
+{
+  "name": "ProtonVPN Servers",
+  "short_name": "PV Servers",
+  "description": "لیست سرورهای ProtonVPN با فیلتر و کپی سریع",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "icons": [
+    { "src": "1000002828.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "1000002819.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
