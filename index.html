@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html dir="rtl" lang="fa">
- <head>
-  <meta charset="utf-8"/>
-  <title>
+<head>
+<meta charset="utf-8"/>
+<title>
    ProtonVPN Servers - Final Version
   </title>
-  <style>
+<style>
    :root {
   --body-bg: #0f172a;
   --text-color: #f1f5f9;
@@ -53,2720 +54,2818 @@ td img.flag {width:20px;height:15px;margin-left:6px;vertical-align:middle;border
   font-weight: bold;
   text-align: right;
 }
-  </style><!-- PWA Settings -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0f172a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
 
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="1000002828.png">
-<link rel="apple-touch-icon" href="1000002819.png">
- </head>
- <body class="dark">
-  <h2>
+.flag {
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  animation: wave 2s infinite ease-in-out;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(2deg) scale(1.05); }
+  50% { transform: rotate(0deg) scale(1); }
+  75% { transform: rotate(-2deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+
+.flag {
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  animation: wave 3s infinite ease-in-out;
+  transform-origin: center left;
+}
+
+@keyframes wave {
+  0%   { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  25%  { transform: perspective(100px) rotateY(-5deg) skewY(-1deg); }
+  50%  { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  75%  { transform: perspective(100px) rotateY(5deg) skewY(1deg); }
+  100% { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+}
+
+
+.flag {
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  animation: wave 6s infinite ease-in-out;
+  transform-origin: center left;
+}
+
+@keyframes wave {
+  0%   { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  25%  { transform: perspective(100px) rotateY(-3deg) skewY(-1deg); }
+  50%  { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  75%  { transform: perspective(100px) rotateY(3deg) skewY(1deg); }
+  100% { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+}
+
+
+.flag {
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  transform-origin: center left;
+}
+
+/* Calm wave */
+.flag.calm {
+  animation: waveCalm 6s infinite ease-in-out;
+}
+@keyframes waveCalm {
+  0%   { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  25%  { transform: perspective(100px) rotateY(-3deg) skewY(-1deg); }
+  50%  { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  75%  { transform: perspective(100px) rotateY(3deg) skewY(1deg); }
+  100% { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+}
+
+/* Energetic wave */
+.flag.energetic {
+  animation: waveEnergetic 1.5s infinite ease-in-out;
+}
+@keyframes waveEnergetic {
+  0%   { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  25%  { transform: perspective(100px) rotateY(-8deg) skewY(-1deg); }
+  50%  { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  75%  { transform: perspective(100px) rotateY(8deg) skewY(1deg); }
+  100% { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+}
+
+
+.flag-wrapper {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin-left: 6px;
+}
+
+.flag-wrapper::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 32px;
+  background: linear-gradient(to bottom, #888, #444);
+  margin-right: 4px;
+  border-radius: 2px;
+}
+</style>
+</head>
+<body class="dark">
+<div style="margin:12px 0;">
+<label>🌊 حالت پرچم: </label>
+<select id="waveSelect" onchange="changeWave(this.value)">
+<option value="calm">آرام 🕊️</option>
+<option value="energetic">پرجنب‌وجوش 🔥</option>
+</select>
+</div>
+<h2>
    🌐 لیست سرورهای ProtonVPN
   </h2>
-  <label>
+<label>
    انتخاب تم:
   </label>
-  <select onchange="changeTheme(this.value)">
-   <option value="dark">
+<select onchange="changeTheme(this.value)">
+<option value="dark">
     تیره 🌑
    </option>
-   <option value="light">
+<option value="light">
     روشن ☀️
    </option>
-   <option value="blue">
+<option value="blue">
     آبی 💙
    </option>
-   <option value="glass">
+<option value="glass">
     شیشه‌ای 🪟
    </option>
-   <option value="nature">
+<option value="nature">
     طبیعت 🌿
    </option>
-   <option value="night">
+<option value="night">
     شب 🌙
    </option>
-   <option value="tech">
+<option value="tech">
     تکنولوژی 🔧
    </option>
-   <option value="ice">
+<option value="ice">
     یخی 🧊
    </option>
-   <option value="gold">
+<option value="gold">
     طلایی ✨
    </option>
-   <option value="pink">
+<option value="pink">
     صورتی 🌸
    </option>
-   <option value="red">
+<option value="red">
     قرمز 🔥
    </option>
-   <option value="purple">
+<option value="purple">
     بنفش 💜
    </option>
-  </select>
-  <br/>
-  <br/>
-  <label>
+</select>
+<br/>
+<br/>
+<label>
    فیلتر بر اساس قاره:
   </label>
-  <select onchange="filterContinent(this.value)">
-   <option value="all">
+<select onchange="filterContinent(this.value)">
+<option value="all">
     🌐 همه
    </option>
-   <option value="Africa">
+<option value="Africa">
     🌍 آفریقا
    </option>
-   <option value="Asia">
+<option value="Asia">
     🌏 آسیا
    </option>
-   <option value="Europe">
+<option value="Europe">
     🌍 اروپا
    </option>
-   <option value="North America">
+<option value="North America">
     🌎 آمریکای شمالی
    </option>
-   <option value="South America">
+<option value="South America">
     🌎 آمریکای جنوبی
    </option>
-   <option value="Oceania">
+<option value="Oceania">
     🌏 اقیانوسیه
    </option>
-  </select>
-  <div class="wrap">
-   <div class="logo">
-    <img alt="ProtonVPN" height="60" src="https://protonvpn.com/images/protonvpn-logo.png"/>
-   </div>
-   <h1>
+</select>
+<div class="wrap">
+<div class="logo">
+<img alt="ProtonVPN" height="60" src="https://protonvpn.com/images/protonvpn-logo.png"/>
+</div>
+<h1>
     🌐 لیست سرورهای ProtonVPN
    </h1>
-   <div style="margin:12px 0;">
-    <label>
+<div style="margin:12px 0;">
+<label>
      🎨 انتخاب تم:
     </label>
-    <select id="themeSelect" onchange="switchTheme()">
-     <option value="fresh">
+<select id="themeSelect" onchange="switchTheme()">
+<option value="fresh">
       Fresh
      </option>
-     <option value="cyberpunk">
+<option value="cyberpunk">
       Cyberpunk
      </option>
-     <option value="luxury">
+<option value="luxury">
       Luxury
      </option>
-     <option value="matrix">
+<option value="matrix">
       Matrix
      </option>
-     <option value="glass">
+<option value="glass">
       Glass
      </option>
-     <option value="sunset">
+<option value="sunset">
       Sunset
      </option>
-     <option value="ocean">
+<option value="ocean">
       Ocean
      </option>
-     <option value="minimal">
+<option value="minimal">
       Minimal
      </option>
-    </select>
-   </div>
-   <h2>
+</select>
+</div>
+<h2>
     📌 جدول خلاصه کشورها
    </h2>
-   <h2>
+<h2>
     📌 جدول کامل سرورها
    </h2>
-   <input id="searchBox" onkeyup="searchTable()" placeholder="🔍 جستجو در کشور یا آی‌پی..." type="text"/>
-   <table id="serversTable">
-    <tr>
-     <th>
+<input id="searchBox" onkeyup="searchTable()" placeholder="🔍 جستجو در کشور یا آی‌پی..." type="text"/>
+<table id="serversTable">
+<tr>
+<th>
       ردیف
      </th>
-     <th>
+<th>
       کپی
      </th>
-     <th>
+<th>
       IP
      </th>
-     <th>
+<th>
       کشور
      </th>
-     <th>
+<th>
       قاره
      </th>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       1
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.40.48.65')">
+<td>
+<button class="copyBtn" onclick="copyText('149.40.48.65')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.40.48.65
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       2
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('188.240.57.226')">
+<td>
+<button class="copyBtn" onclick="copyText('188.240.57.226')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       188.240.57.226
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       3
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.179.98')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.179.98')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.179.98
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       4
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('84.20.17.198')">
+<td>
+<button class="copyBtn" onclick="copyText('84.20.17.198')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       84.20.17.198
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       5
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.146.1')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.146.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.146.1
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       6
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.40.63.129')">
+<td>
+<button class="copyBtn" onclick="copyText('149.40.63.129')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.40.63.129
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       7
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.146.156')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.146.156')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.146.156
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       8
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('84.20.17.193')">
+<td>
+<button class="copyBtn" onclick="copyText('84.20.17.193')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       84.20.17.193
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       9
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.24.193')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.24.193')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.24.193
      </td>
-     <td>
-      <img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/>
+<td>
+<div class="flag-wrapper"><img alt="United Kingdom" class="flag" src="https://flagcdn.com/w40/gb.png"/></div>
       United Kingdom
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       10
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('31.171.153.98')">
+<td>
+<button class="copyBtn" onclick="copyText('31.171.153.98')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       31.171.153.98
      </td>
-     <td>
-      <img alt="Albania" class="flag" src="https://flagcdn.com/w40/al.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Albania" class="flag" src="https://flagcdn.com/w40/al.png"/></div>
       Albania
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       11
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.4')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.4')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.4
      </td>
-     <td>
-      <img alt="Albania" class="flag" src="https://flagcdn.com/w40/al.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Albania" class="flag" src="https://flagcdn.com/w40/al.png"/></div>
       Albania
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       12
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.8')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.8')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.8
      </td>
-     <td>
-      <img alt="Angola" class="flag" src="https://flagcdn.com/w40/ao.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Angola" class="flag" src="https://flagcdn.com/w40/ao.png"/></div>
       Angola
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       13
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.48')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.48')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.48
      </td>
-     <td>
-      <img alt="Algeria" class="flag" src="https://flagcdn.com/w40/dz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Algeria" class="flag" src="https://flagcdn.com/w40/dz.png"/></div>
       Algeria
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       14
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.83.137.1')">
+<td>
+<button class="copyBtn" onclick="copyText('45.83.137.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.83.137.1
      </td>
-     <td>
-      <img alt="Algeria" class="flag" src="https://flagcdn.com/w40/dz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Algeria" class="flag" src="https://flagcdn.com/w40/dz.png"/></div>
       Algeria
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       15
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('89.249.72.2')">
+<td>
+<button class="copyBtn" onclick="copyText('89.249.72.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       89.249.72.2
      </td>
-     <td>
-      <img alt="Armenia" class="flag" src="https://flagcdn.com/w40/am.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Armenia" class="flag" src="https://flagcdn.com/w40/am.png"/></div>
       Armenia
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       16
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.102.224.161')">
+<td>
+<button class="copyBtn" onclick="copyText('149.102.224.161')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.102.224.161
      </td>
-     <td>
-      <img alt="Argentina" class="flag" src="https://flagcdn.com/w40/ar.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Argentina" class="flag" src="https://flagcdn.com/w40/ar.png"/></div>
       Argentina
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       17
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('87.249.133.97')">
+<td>
+<button class="copyBtn" onclick="copyText('87.249.133.97')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       87.249.133.97
      </td>
-     <td>
-      <img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/></div>
       Austria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       18
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.19.212')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.19.212')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.19.212
      </td>
-     <td>
-      <img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/></div>
       Austria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       19
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.19.193')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.19.193')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.19.193
      </td>
-     <td>
-      <img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/></div>
       Austria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       20
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.19.213')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.19.213')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.19.213
      </td>
-     <td>
-      <img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Austria" class="flag" src="https://flagcdn.com/w40/at.png"/></div>
       Austria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       21
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('217.138.89.2')">
+<td>
+<button class="copyBtn" onclick="copyText('217.138.89.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       217.138.89.2
      </td>
-     <td>
-      <img alt="Azerbaijan" class="flag" src="https://flagcdn.com/w40/az.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Azerbaijan" class="flag" src="https://flagcdn.com/w40/az.png"/></div>
       Azerbaijan
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       22
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.83.124.1')">
+<td>
+<button class="copyBtn" onclick="copyText('45.83.124.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.83.124.1
      </td>
-     <td>
-      <img alt="Azerbaijan" class="flag" src="https://flagcdn.com/w40/az.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Azerbaijan" class="flag" src="https://flagcdn.com/w40/az.png"/></div>
       Azerbaijan
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       23
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('36.50.238.1')">
+<td>
+<button class="copyBtn" onclick="copyText('36.50.238.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       36.50.238.1
      </td>
-     <td>
-      <img alt="Bangladesh" class="flag" src="https://flagcdn.com/w40/bd.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bangladesh" class="flag" src="https://flagcdn.com/w40/bd.png"/></div>
       Bangladesh
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       24
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('91.90.123.178')">
+<td>
+<button class="copyBtn" onclick="copyText('91.90.123.178')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       91.90.123.178
      </td>
-     <td>
-      <img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/></div>
       Belgium
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       25
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('91.90.123.50')">
+<td>
+<button class="copyBtn" onclick="copyText('91.90.123.50')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       91.90.123.50
      </td>
-     <td>
-      <img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/></div>
       Belgium
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       26
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.128.133.226')">
+<td>
+<button class="copyBtn" onclick="copyText('45.128.133.226')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.128.133.226
      </td>
-     <td>
-      <img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/></div>
       Belgium
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       27
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.164.65')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.164.65')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.164.65
      </td>
-     <td>
-      <img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Belgium" class="flag" src="https://flagcdn.com/w40/be.png"/></div>
       Belgium
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       28
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.16')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.16')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.16
      </td>
-     <td>
-      <img alt="Bahrain" class="flag" src="https://flagcdn.com/w40/bh.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bahrain" class="flag" src="https://flagcdn.com/w40/bh.png"/></div>
       Bahrain
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       29
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('94.190.195.24')">
+<td>
+<button class="copyBtn" onclick="copyText('94.190.195.24')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       94.190.195.24
      </td>
-     <td>
-      <img alt="Bhutan" class="flag" src="https://flagcdn.com/w40/bt.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bhutan" class="flag" src="https://flagcdn.com/w40/bt.png"/></div>
       Bhutan
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       30
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.24')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.24')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.24
      </td>
-     <td>
-      <img alt="Belarus" class="flag" src="https://flagcdn.com/w40/by.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Belarus" class="flag" src="https://flagcdn.com/w40/by.png"/></div>
       Belarus
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       31
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.212.111.98')">
+<td>
+<button class="copyBtn" onclick="copyText('185.212.111.98')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.212.111.98
      </td>
-     <td>
-      <img alt="Bosnia" class="flag" src="https://flagcdn.com/w40/ba.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bosnia" class="flag" src="https://flagcdn.com/w40/ba.png"/></div>
       Bosnia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       32
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('156.146.55.225')">
+<td>
+<button class="copyBtn" onclick="copyText('156.146.55.225')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       156.146.55.225
      </td>
-     <td>
-      <img alt="Bulgaria" class="flag" src="https://flagcdn.com/w40/bg.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bulgaria" class="flag" src="https://flagcdn.com/w40/bg.png"/></div>
       Bulgaria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       33
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.245.130')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.245.130')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.245.130
      </td>
-     <td>
-      <img alt="Bulgaria" class="flag" src="https://flagcdn.com/w40/bg.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Bulgaria" class="flag" src="https://flagcdn.com/w40/bg.png"/></div>
       Bulgaria
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       34
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('109.111.197.130')">
+<td>
+<button class="copyBtn" onclick="copyText('109.111.197.130')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       109.111.197.130
      </td>
-     <td>
-      <img alt="Brunei" class="flag" src="https://flagcdn.com/w40/bn.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Brunei" class="flag" src="https://flagcdn.com/w40/bn.png"/></div>
       Brunei
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       35
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('188.241.177.226')">
+<td>
+<button class="copyBtn" onclick="copyText('188.241.177.226')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       188.241.177.226
      </td>
-     <td>
-      <img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/></div>
       Brazil
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       36
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.98.130')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.98.130')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.98.130
      </td>
-     <td>
-      <img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/></div>
       Brazil
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       37
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.98.162')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.98.162')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.98.162
      </td>
-     <td>
-      <img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/></div>
       Brazil
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       38
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.102.251.97')">
+<td>
+<button class="copyBtn" onclick="copyText('149.102.251.97')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.102.251.97
      </td>
-     <td>
-      <img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Brazil" class="flag" src="https://flagcdn.com/w40/br.png"/></div>
       Brazil
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       39
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('84.20.16.29')">
+<td>
+<button class="copyBtn" onclick="copyText('84.20.16.29')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       84.20.16.29
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       40
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.198.2')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.198.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.198.2
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       41
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.111.110.3')">
+<td>
+<button class="copyBtn" onclick="copyText('185.111.110.3')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.111.110.3
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       42
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('176.113.74.82')">
+<td>
+<button class="copyBtn" onclick="copyText('176.113.74.82')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       176.113.74.82
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       43
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.22.82.88')">
+<td>
+<button class="copyBtn" onclick="copyText('149.22.82.88')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.22.82.88
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       44
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.17.129')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.17.129')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.17.129
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       45
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.22.95.193')">
+<td>
+<button class="copyBtn" onclick="copyText('149.22.95.193')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.22.95.193
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       46
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('139.28.218.2')">
+<td>
+<button class="copyBtn" onclick="copyText('139.28.218.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       139.28.218.2
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       47
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.254.92')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.254.92')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.254.92
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       48
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.254.65')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.254.65')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.254.65
      </td>
-     <td>
-      <img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Canada" class="flag" src="https://flagcdn.com/w40/ca.png"/></div>
       Canada
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       49
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.50.106')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.50.106')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.50.106
      </td>
-     <td>
-      <img alt="Chile" class="flag" src="https://flagcdn.com/w40/cl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Chile" class="flag" src="https://flagcdn.com/w40/cl.png"/></div>
       Chile
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       50
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('154.47.16.81')">
+<td>
+<button class="copyBtn" onclick="copyText('154.47.16.81')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       154.47.16.81
      </td>
-     <td>
-      <img alt="Colombia" class="flag" src="https://flagcdn.com/w40/co.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Colombia" class="flag" src="https://flagcdn.com/w40/co.png"/></div>
       Colombia
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       51
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.136.35')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.136.35')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.136.35
      </td>
-     <td>
-      <img alt="Colombia" class="flag" src="https://flagcdn.com/w40/co.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Colombia" class="flag" src="https://flagcdn.com/w40/co.png"/></div>
       Colombia
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       52
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('188.215.235.82')">
+<td>
+<button class="copyBtn" onclick="copyText('188.215.235.82')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       188.215.235.82
      </td>
-     <td>
-      <img alt="Cambodia" class="flag" src="https://flagcdn.com/w40/kh.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Cambodia" class="flag" src="https://flagcdn.com/w40/kh.png"/></div>
       Cambodia
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       53
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.112')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.112')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.112
      </td>
-     <td>
-      <img alt="Comoros" class="flag" src="https://flagcdn.com/w40/km.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Comoros" class="flag" src="https://flagcdn.com/w40/km.png"/></div>
       Comoros
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       54
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.83.138.1')">
+<td>
+<button class="copyBtn" onclick="copyText('45.83.138.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.83.138.1
      </td>
-     <td>
-      <img alt="Chad" class="flag" src="https://flagcdn.com/w40/td.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Chad" class="flag" src="https://flagcdn.com/w40/td.png"/></div>
       Chad
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       55
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.216')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.216')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.216
      </td>
-     <td>
-      <img alt="Chad" class="flag" src="https://flagcdn.com/w40/td.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Chad" class="flag" src="https://flagcdn.com/w40/td.png"/></div>
       Chad
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       56
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.32')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.32')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.32
      </td>
-     <td>
-      <img alt="Ivory Coast" class="flag" src="https://flagcdn.com/w40/ci.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Ivory Coast" class="flag" src="https://flagcdn.com/w40/ci.png"/></div>
       Ivory Coast
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       57
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.50.104')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.50.104')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.50.104
      </td>
-     <td>
-      <img alt="Costa Rica" class="flag" src="https://flagcdn.com/w40/cr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Costa Rica" class="flag" src="https://flagcdn.com/w40/cr.png"/></div>
       Costa Rica
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       58
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('85.132.252.34')">
+<td>
+<button class="copyBtn" onclick="copyText('85.132.252.34')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       85.132.252.34
      </td>
-     <td>
-      <img alt="Cyprus" class="flag" src="https://flagcdn.com/w40/cy.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Cyprus" class="flag" src="https://flagcdn.com/w40/cy.png"/></div>
       Cyprus
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       59
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.102.235.33')">
+<td>
+<button class="copyBtn" onclick="copyText('149.102.235.33')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.102.235.33
      </td>
-     <td>
-      <img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/></div>
       Czech Republic
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       60
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.129.18')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.129.18')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.129.18
      </td>
-     <td>
-      <img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/></div>
       Czech Republic
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       61
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.154.1')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.154.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.154.1
      </td>
-     <td>
-      <img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Czech Republic" class="flag" src="https://flagcdn.com/w40/cz.png"/></div>
       Czech Republic
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       62
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.111.109.1')">
+<td>
+<button class="copyBtn" onclick="copyText('185.111.109.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.111.109.1
      </td>
-     <td>
-      <img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/></div>
       Denmark
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       63
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('193.29.107.162')">
+<td>
+<button class="copyBtn" onclick="copyText('193.29.107.162')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       193.29.107.162
      </td>
-     <td>
-      <img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/></div>
       Denmark
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       64
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('193.29.107.98')">
+<td>
+<button class="copyBtn" onclick="copyText('193.29.107.98')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       193.29.107.98
      </td>
-     <td>
-      <img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/></div>
       Denmark
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       65
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.50.217.161')">
+<td>
+<button class="copyBtn" onclick="copyText('149.50.217.161')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.50.217.161
      </td>
-     <td>
-      <img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/></div>
       Denmark
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       66
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('193.29.107.242')">
+<td>
+<button class="copyBtn" onclick="copyText('193.29.107.242')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       193.29.107.242
      </td>
-     <td>
-      <img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Denmark" class="flag" src="https://flagcdn.com/w40/dk.png"/></div>
       Denmark
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       67
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.50.103')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.50.103')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.50.103
      </td>
-     <td>
-      <img alt="Ecuador" class="flag" src="https://flagcdn.com/w40/ec.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Ecuador" class="flag" src="https://flagcdn.com/w40/ec.png"/></div>
       Ecuador
      </td>
-     <td>
+<td>
       South America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       68
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('188.214.122.82')">
+<td>
+<button class="copyBtn" onclick="copyText('188.214.122.82')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       188.214.122.82
      </td>
-     <td>
-      <img alt="Egypt" class="flag" src="https://flagcdn.com/w40/eg.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Egypt" class="flag" src="https://flagcdn.com/w40/eg.png"/></div>
       Egypt
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       69
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.56')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.56')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.56
      </td>
-     <td>
-      <img alt="Egypt" class="flag" src="https://flagcdn.com/w40/eg.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Egypt" class="flag" src="https://flagcdn.com/w40/eg.png"/></div>
       Egypt
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       70
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.60')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.60')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.60
      </td>
-     <td>
-      <img alt="Eritrea" class="flag" src="https://flagcdn.com/w40/er.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Eritrea" class="flag" src="https://flagcdn.com/w40/er.png"/></div>
       Eritrea
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       71
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.139.48.242')">
+<td>
+<button class="copyBtn" onclick="copyText('45.139.48.242')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.139.48.242
      </td>
-     <td>
-      <img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/></div>
       Croatia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       72
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.144.130')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.144.130')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.144.130
      </td>
-     <td>
-      <img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/></div>
       Croatia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       73
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('178.218.167.210')">
+<td>
+<button class="copyBtn" onclick="copyText('178.218.167.210')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       178.218.167.210
      </td>
-     <td>
-      <img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Croatia" class="flag" src="https://flagcdn.com/w40/hr.png"/></div>
       Croatia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       74
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('89.45.224.2')">
+<td>
+<button class="copyBtn" onclick="copyText('89.45.224.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       89.45.224.2
      </td>
-     <td>
-      <img alt="El Salvador" class="flag" src="https://flagcdn.com/w40/sv.png"/>
+<td>
+<div class="flag-wrapper"><img alt="El Salvador" class="flag" src="https://flagcdn.com/w40/sv.png"/></div>
       El Salvador
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       75
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.83.146.1')">
+<td>
+<button class="copyBtn" onclick="copyText('45.83.146.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.83.146.1
      </td>
-     <td>
-      <img alt="El Salvador" class="flag" src="https://flagcdn.com/w40/sv.png"/>
+<td>
+<div class="flag-wrapper"><img alt="El Salvador" class="flag" src="https://flagcdn.com/w40/sv.png"/></div>
       El Salvador
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       76
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.88.102.97')">
+<td>
+<button class="copyBtn" onclick="copyText('149.88.102.97')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.88.102.97
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       77
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.88.24.180')">
+<td>
+<button class="copyBtn" onclick="copyText('149.88.24.180')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.88.24.180
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       78
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.88.102.33')">
+<td>
+<button class="copyBtn" onclick="copyText('149.88.102.33')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.88.102.33
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       79
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('194.126.177.128')">
+<td>
+<button class="copyBtn" onclick="copyText('194.126.177.128')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       194.126.177.128
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       80
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('217.138.216.98')">
+<td>
+<button class="copyBtn" onclick="copyText('217.138.216.98')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       217.138.216.98
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       81
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('194.126.177.14')">
+<td>
+<button class="copyBtn" onclick="copyText('194.126.177.14')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       194.126.177.14
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       82
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.88.19.238')">
+<td>
+<button class="copyBtn" onclick="copyText('149.88.19.238')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.88.19.238
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       83
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.88.24.129')">
+<td>
+<button class="copyBtn" onclick="copyText('149.88.24.129')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.88.24.129
      </td>
-     <td>
-      <img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Germany" class="flag" src="https://flagcdn.com/w40/de.png"/></div>
       Germany
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       84
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('165.231.178.10')">
+<td>
+<button class="copyBtn" onclick="copyText('165.231.178.10')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       165.231.178.10
      </td>
-     <td>
-      <img alt="Estonia" class="flag" src="https://flagcdn.com/w40/ee.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Estonia" class="flag" src="https://flagcdn.com/w40/ee.png"/></div>
       Estonia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       85
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('95.153.31.114')">
+<td>
+<button class="copyBtn" onclick="copyText('95.153.31.114')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       95.153.31.114
      </td>
-     <td>
-      <img alt="Estonia" class="flag" src="https://flagcdn.com/w40/ee.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Estonia" class="flag" src="https://flagcdn.com/w40/ee.png"/></div>
       Estonia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       86
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.64')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.64')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.64
      </td>
-     <td>
-      <img alt="Ethiopia" class="flag" src="https://flagcdn.com/w40/et.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Ethiopia" class="flag" src="https://flagcdn.com/w40/et.png"/></div>
       Ethiopia
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       87
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.90.60.210')">
+<td>
+<button class="copyBtn" onclick="copyText('185.90.60.210')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.90.60.210
      </td>
-     <td>
-      <img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/></div>
       Finland
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       88
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('130.195.221.162')">
+<td>
+<button class="copyBtn" onclick="copyText('130.195.221.162')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       130.195.221.162
      </td>
-     <td>
-      <img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/></div>
       Finland
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       89
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('196.196.203.202')">
+<td>
+<button class="copyBtn" onclick="copyText('196.196.203.202')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       196.196.203.202
      </td>
-     <td>
-      <img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Finland" class="flag" src="https://flagcdn.com/w40/fi.png"/></div>
       Finland
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       90
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.134.1')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.134.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.134.1
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       91
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.169.91')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.169.91')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.169.91
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       92
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.169.92')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.169.92')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.169.92
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       93
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.134.82')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.134.82')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.134.82
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       94
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.246.211.72')">
+<td>
+<button class="copyBtn" onclick="copyText('185.246.211.72')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.246.211.72
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       95
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.169.1')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.169.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.169.1
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       96
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.134.55')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.134.55')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.134.55
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       97
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.169.59')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.169.59')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.169.59
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       98
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('149.102.245.156')">
+<td>
+<button class="copyBtn" onclick="copyText('149.102.245.156')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       149.102.245.156
      </td>
-     <td>
-      <img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/>
+<td>
+<div class="flag-wrapper"><img alt="France" class="flag" src="https://flagcdn.com/w40/fr.png"/></div>
       France
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       99
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('130.195.217.2')">
+<td>
+<button class="copyBtn" onclick="copyText('130.195.217.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       130.195.217.2
      </td>
-     <td>
-      <img alt="Morocco" class="flag" src="https://flagcdn.com/w40/ma.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Morocco" class="flag" src="https://flagcdn.com/w40/ma.png"/></div>
       Morocco
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       100
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.136')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.136')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.136
      </td>
-     <td>
-      <img alt="Morocco" class="flag" src="https://flagcdn.com/w40/ma.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Morocco" class="flag" src="https://flagcdn.com/w40/ma.png"/></div>
       Morocco
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       101
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.163.44.137')">
+<td>
+<button class="copyBtn" onclick="copyText('185.163.44.137')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.163.44.137
      </td>
-     <td>
-      <img alt="Moldova" class="flag" src="https://flagcdn.com/w40/md.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Moldova" class="flag" src="https://flagcdn.com/w40/md.png"/></div>
       Moldova
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       102
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('130.195.240.2')">
+<td>
+<button class="copyBtn" onclick="copyText('130.195.240.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       130.195.240.2
      </td>
-     <td>
-      <img alt="Moldova" class="flag" src="https://flagcdn.com/w40/md.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Moldova" class="flag" src="https://flagcdn.com/w40/md.png"/></div>
       Moldova
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       103
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.60.87')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.60.87')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.60.87
      </td>
-     <td>
-      <img alt="Myanmar" class="flag" src="https://flagcdn.com/w40/mm.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Myanmar" class="flag" src="https://flagcdn.com/w40/mm.png"/></div>
       Myanmar
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       104
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('37.191.127.2')">
+<td>
+<button class="copyBtn" onclick="copyText('37.191.127.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       37.191.127.2
      </td>
-     <td>
-      <img alt="Mongolia" class="flag" src="https://flagcdn.com/w40/mn.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mongolia" class="flag" src="https://flagcdn.com/w40/mn.png"/></div>
       Mongolia
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       105
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.180.1')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.180.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.180.1
      </td>
-     <td>
-      <img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/></div>
       Mexico
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       106
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('84.252.113.9')">
+<td>
+<button class="copyBtn" onclick="copyText('84.252.113.9')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       84.252.113.9
      </td>
-     <td>
-      <img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/></div>
       Mexico
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       107
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.50.107')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.50.107')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.50.107
      </td>
-     <td>
-      <img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/></div>
       Mexico
      </td>
-     <td>
+<td>
       North America
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       108
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.156')">
+<td>
+<button class="copyBtn" onclick="copyText('74.118.126.156')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       74.118.126.156
      </td>
-     <td>
-      <img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/></div>
       Mozambique
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       109
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('193.9.36.1')">
+<td>
+<button class="copyBtn" onclick="copyText('193.9.36.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       193.9.36.1
      </td>
-     <td>
-      <img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/></div>
       Mozambique
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       110
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('46.29.25.2')">
+<td>
+<button class="copyBtn" onclick="copyText('46.29.25.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       46.29.25.2
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       111
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('103.69.224.5')">
+<td>
+<button class="copyBtn" onclick="copyText('103.69.224.5')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       103.69.224.5
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       112
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('103.69.224.6')">
+<td>
+<button class="copyBtn" onclick="copyText('103.69.224.6')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       103.69.224.6
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       113
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('103.69.224.2')">
+<td>
+<button class="copyBtn" onclick="copyText('103.69.224.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       103.69.224.2
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       114
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('103.69.224.4')">
+<td>
+<button class="copyBtn" onclick="copyText('103.69.224.4')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       103.69.224.4
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       115
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('46.29.25.6')">
+<td>
+<button class="copyBtn" onclick="copyText('46.29.25.6')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       46.29.25.6
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       116
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('62.112.9.164')">
+<td>
+<button class="copyBtn" onclick="copyText('62.112.9.164')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       62.112.9.164
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       117
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('138.199.7.129')">
+<td>
+<button class="copyBtn" onclick="copyText('138.199.7.129')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       138.199.7.129
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       118
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('46.29.25.3')">
+<td>
+<button class="copyBtn" onclick="copyText('46.29.25.3')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       46.29.25.3
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       119
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.107.44.110')">
+<td>
+<button class="copyBtn" onclick="copyText('185.107.44.110')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.107.44.110
      </td>
-     <td>
-      <img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
       Netherlands
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       120
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.252.2')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.252.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.252.2
      </td>
-     <td>
-      <img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/></div>
       Nepal
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       121
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('45.83.125.1')">
+<td>
+<button class="copyBtn" onclick="copyText('45.83.125.1')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       45.83.125.1
      </td>
-     <td>
-      <img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/></div>
       Nepal
      </td>
-     <td>
+<td>
       Asia
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       122
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.229.25.116')">
+<td>
+<button class="copyBtn" onclick="copyText('185.229.25.116')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.229.25.116
      </td>
-     <td>
-      <img alt="North Macedonia" class="flag" src="https://flagcdn.com/w40/mk.png"/>
+<td>
+<div class="flag-wrapper"><img alt="North Macedonia" class="flag" src="https://flagcdn.com/w40/mk.png"/></div>
       North Macedonia
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       123
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('185.76.11.27')">
+<td>
+<button class="copyBtn" onclick="copyText('185.76.11.27')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       185.76.11.27
      </td>
-     <td>
-      <img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/></div>
       Nigeria
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       124
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('79.127.149.65')">
+<td>
+<button class="copyBtn" onclick="copyText('79.127.149.65')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       79.127.149.65
      </td>
-     <td>
-      <img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/></div>
       Nigeria
      </td>
-     <td>
+<td>
       Africa
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       125
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('84.247.50.178')">
+<td>
+<button class="copyBtn" onclick="copyText('84.247.50.178')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       84.247.50.178
      </td>
-     <td>
-      <img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
       Norway
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       126
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.170.18')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.170.18')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.170.18
      </td>
-     <td>
-      <img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
       Norway
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       127
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('146.70.170.2')">
+<td>
+<button class="copyBtn" onclick="copyText('146.70.170.2')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       146.70.170.2
      </td>
-     <td>
-      <img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
       Norway
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       128
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('95.173.205.129')">
+<td>
+<button class="copyBtn" onclick="copyText('95.173.205.129')">
        کپی
       </button>
-     </td>
-     <td>
+</td>
+<td>
       95.173.205.129
      </td>
-     <td>
-      <img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/>
+<td>
+<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
       Norway
      </td>
-     <td>
+<td>
       Europe
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       129
      </td>
-     <td>
-      <button class="copyBtn" onclick="copyText('74.118.126.172')">
-       کپی
-      </button>
-     </td>
-     <td>
-      74
+<td>
+<button class="copyBtn" onclick="cop
