@@ -158,9 +158,416 @@ td img.flag {width:20px;height:15px;margin-left:6px;vertical-align:middle;border
   margin-right: 4px;
   border-radius: 2px;
 }
+
+
+/* Default pole */
+.flag-wrapper::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 32px;
+  background: linear-gradient(to bottom, #888, #444);
+  margin-right: 4px;
+  border-radius: 2px;
+}
+
+/* Silver pole */
+.flag-wrapper.silver::before {
+  background: linear-gradient(to bottom, #e5e5e5, #737373);
+}
+
+/* Gold pole */
+.flag-wrapper.gold::before {
+  background: linear-gradient(to bottom, #facc15, #b45309);
+}
+
+/* Blue pole */
+.flag-wrapper.blue::before {
+  background: linear-gradient(to bottom, #3b82f6, #1e3a8a);
+}
+
+/* Green pole */
+.flag-wrapper.green::before {
+  background: linear-gradient(to bottom, #22c55e, #065f46);
+}
 </style>
+
+<style>
+/* ====== Theme Styles ====== */
+
+/* تیره (dark) */
+body.dark {
+  --body-bg: #0f172a;
+  --text-color: #f1f5f9;
+}
+
+/* روشن (light) */
+body.light {
+  --body-bg: #ffffff;
+  --text-color: #111111;
+}
+
+/* آبی (blue) */
+body.blue {
+  --body-bg: #1e3a8a;
+  --text-color: #e0f2fe;
+}
+
+/* شیشه‌ای (glass) */
+body.glass {
+  --body-bg: rgba(255, 255, 255, 0.2);
+  --text-color: #111;
+  backdrop-filter: blur(12px);
+}
+
+/* طبیعت (nature) */
+body.nature {
+  --body-bg: #064e3b;
+  --text-color: #d1fae5;
+}
+
+/* شب (night) */
+body.night {
+  --body-bg: #0f172a;
+  --text-color: #38bdf8;
+}
+
+/* تکنولوژی (tech) */
+body.tech {
+  --body-bg: #111827;
+  --text-color: #10b981;
+}
+
+/* یخی (ice) */
+body.ice {
+  --body-bg: #e0f2fe;
+  --text-color: #1e3a8a;
+}
+
+/* طلایی (gold) */
+body.gold {
+  --body-bg: #facc15;
+  --text-color: #78350f;
+}
+
+/* صورتی (pink) */
+body.pink {
+  --body-bg: #f9a8d4;
+  --text-color: #831843;
+}
+
+/* قرمز (red) */
+body.red {
+  --body-bg: #991b1b;
+  --text-color: #fee2e2;
+}
+
+/* بنفش (purple) */
+body.purple {
+  --body-bg: #581c87;
+  --text-color: #f3e8ff;
+}
+</style>
+
+
+<style>
+/* ====== THEME OVERRIDES (full) ====== */
+
+/* dark (پیش‌فرض) — نیازی به تعریف مجدد نیست */
+
+/* light */
+body.light {
+  --body-bg: #ffffff;
+  --text-color: #111111;
+  --table-bg: #ffffff;
+  --th-bg: #e5e7eb;
+  --btn-bg: #111827;
+  --btn-hover: #0b1220;
+}
+
+/* blue */
+body.blue {
+  --body-bg: #1e3a8a;
+  --text-color: #e0f2fe;
+  --table-bg: rgba(6, 40, 104, 0.85);
+  --th-bg: #0c2c6c;
+  --btn-bg: #3b82f6;
+  --btn-hover: #2563eb;
+}
+
+/* glass */
+body.glass {
+  --body-bg: rgba(255,255,255,0.2);
+  --text-color: #111111;
+  --table-bg: rgba(255,255,255,0.45);
+  --th-bg: rgba(255,255,255,0.65);
+  --btn-bg: #111827;
+  --btn-hover: #0b1220;
+  backdrop-filter: blur(12px);
+}
+
+/* nature */
+body.nature {
+  --body-bg: #064e3b;
+  --text-color: #d1fae5;
+  --table-bg: rgba(6,78,59,0.8);
+  --th-bg: #0b3b2e;
+  --btn-bg: #10b981;
+  --btn-hover: #059669;
+}
+
+/* night */
+body.night {
+  --body-bg: #0f172a;
+  --text-color: #38bdf8;
+  --table-bg: rgba(15,23,42,0.92);
+  --th-bg: #0b1220;
+  --btn-bg: #38bdf8;
+  --btn-hover: #0ea5e9;
+}
+
+/* tech */
+body.tech {
+  --body-bg: #111827;
+  --text-color: #10b981;
+  --table-bg: rgba(17,24,39,0.92);
+  --th-bg: #0f172a;
+  --btn-bg: #10b981;
+  --btn-hover: #059669;
+}
+
+/* ice */
+body.ice {
+  --body-bg: #e0f7ff;   /* آبی خیلی روشن */
+  --text-color: #0f172a; /* نزدیک مشکی */
+  --table-bg: #ffffff;
+  --th-bg: #dbeafe;
+  --btn-bg: #0ea5e9;
+  --btn-hover: #0284c7;
+}
+
+/* gold */
+body.gold {
+  --body-bg: #facc15;   /* زرد روشن */
+  --text-color: #111111;
+  --table-bg: #fde68a;
+  --th-bg: #f59e0b;
+  --btn-bg: #a16207;
+  --btn-hover: #92400e;
+}
+
+/* pink */
+body.pink {
+  --body-bg: #f9a8d4;
+  --text-color: #831843;
+  --table-bg: #fce7f3;
+  --th-bg: #fbcfe8;
+  --btn-bg: #db2777;
+  --btn-hover: #be185d;
+}
+
+/* red */
+body.red {
+  --body-bg: #991b1b;
+  --text-color: #fee2e2;
+  --table-bg: #7f1d1d;
+  --th-bg: #6b0f0f;
+  --btn-bg: #ef4444;
+  --btn-hover: #dc2626;
+}
+
+/* purple */
+body.purple {
+  --body-bg: #581c87;
+  --text-color: #f3e8ff;
+  --table-bg: #4c1d95;
+  --th-bg: #3b0764;
+  --btn-bg: #9333ea;
+  --btn-hover: #7e22ce;
+}
+
+/* ===== اضافی برای منوی دوم ===== */
+
+/* fresh */
+body.fresh {
+  --body-bg: #e6f6ff;
+  --text-color: #0f172a;
+  --table-bg: #ffffff;
+  --th-bg: #dbeafe;
+  --btn-bg: #2563eb;
+  --btn-hover: #1d4ed8;
+}
+
+/* cyberpunk */
+body.cyberpunk {
+  --body-bg: #0a0014;
+  --text-color: #f5d0fe;
+  --table-bg: #1a1033;
+  --th-bg: #110826;
+  --btn-bg: #ff00e5;
+  --btn-hover: #d100c5;
+}
+
+/* luxury */
+body.luxury {
+  --body-bg: #0f172a;
+  --text-color: #e5e7eb;
+  --table-bg: #0b1220;
+  --th-bg: #111827;
+  --btn-bg: #d4af37;  /* طلایی */
+  --btn-hover: #b88a00;
+}
+
+/* matrix */
+body.matrix {
+  --body-bg: #0b0f0c;
+  --text-color: #a7f3d0;
+  --table-bg: #0a0f0b;
+  --th-bg: #0b1a12;
+  --btn-bg: #22c55e;
+  --btn-hover: #16a34a;
+}
+
+/* sunset */
+body.sunset {
+  --body-bg: #fed7aa;
+  --text-color: #1f2937;
+  --table-bg: #fff7ed;
+  --th-bg: #fdba74;
+  --btn-bg: #f97316;
+  --btn-hover: #ea580c;
+}
+
+/* ocean */
+body.ocean {
+  --body-bg: #0e7490;
+  --text-color: #e0f2fe;
+  --table-bg: rgba(5, 78, 94, 0.9);
+  --th-bg: #094857;
+  --btn-bg: #06b6d4;
+  --btn-hover: #0891b2;
+}
+
+/* minimal */
+body.minimal {
+  --body-bg: #ffffff;
+  --text-color: #111111;
+  --table-bg: #ffffff;
+  --th-bg: #f3f4f6;
+  --btn-bg: #111827;
+  --btn-hover: #0b1220;
+}
+</style>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v5.0.1/dist/font-face.css" rel="stylesheet" />
+
+
+<style>
+@font-face {
+  font-family: 'Bungee';
+  src: url('Bungee-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'Changa One';
+  src: url('ChangaOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('PressStart2P-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'El Messiri';
+  src: url('ElMessiri-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'Honk';
+  src: url('Honk-Regular-VariableFont_MORF,SHLN.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'Rubik Wet Paint';
+  src: url('RubikWetPaint-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: 'Oi';
+  src: url('Oi-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
 </head>
-<body class="dark">
+<body>
+
+<div style="margin: 10px 0;">
+  انتخاب فونت: 
+  <select id="fontSelect" onchange="changeFont(this.value)">
+    <option value="'Roboto', sans-serif">Roboto (پیش‌فرض)</option>
+    <option value="'Vazir', sans-serif">Vazir</option>
+    <option value="'Shabnam', sans-serif">Shabnam</option>
+    <option value="'Sahel', sans-serif">Sahel</option>
+    <option value="'Courier New', monospace">Courier New</option>
+    <option value="'Bungee', sans-serif">Bungee</option>
+    <option value="'Changa One', sans-serif">Changa One</option>
+    <option value="'Press Start 2P', cursive">Press Start 2P</option>
+    <option value="'El Messiri', sans-serif">El Messiri</option>
+    <option value="'Honk', cursive">Honk</option>
+    <option value="'Rubik Wet Paint', cursive">Rubik Wet Paint</option>
+    <option value="'Oi', cursive">Oi</option>
+  </select>
+</div>
+ class="dark">
+<div style="margin:12px 0;">
+<label>🎨 رنگ میله: </label>
+<select id="poleSelect" onchange="changePole(this.value)">
+<option value="default">پیش‌فرض ⚪</option>
+<option value="silver">نقره‌ای ⚪</option>
+<option value="gold">طلایی 🟡</option>
+<option value="blue">آبی 🔵</option>
+<option value="green">سبز 🟢</option>
+</select>
+</div>
+
 <div style="margin:12px 0;">
 <label>🌊 حالت پرچم: </label>
 <select id="waveSelect" onchange="changeWave(this.value)">
@@ -2406,466 +2813,4 @@ td img.flag {width:20px;height:15px;margin-left:6px;vertical-align:middle;border
 <tr>
 <td>
       106
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('84.252.113.9')">
-       کپی
-      </button>
-</td>
-<td>
-      84.252.113.9
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/></div>
-      Mexico
-     </td>
-<td>
-      North America
-     </td>
-</tr>
-<tr>
-<td>
-      107
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('138.199.50.107')">
-       کپی
-      </button>
-</td>
-<td>
-      138.199.50.107
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Mexico" class="flag" src="https://flagcdn.com/w40/mx.png"/></div>
-      Mexico
-     </td>
-<td>
-      North America
-     </td>
-</tr>
-<tr>
-<td>
-      108
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('74.118.126.156')">
-       کپی
-      </button>
-</td>
-<td>
-      74.118.126.156
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/></div>
-      Mozambique
-     </td>
-<td>
-      Africa
-     </td>
-</tr>
-<tr>
-<td>
-      109
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('193.9.36.1')">
-       کپی
-      </button>
-</td>
-<td>
-      193.9.36.1
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Mozambique" class="flag" src="https://flagcdn.com/w40/mz.png"/></div>
-      Mozambique
-     </td>
-<td>
-      Africa
-     </td>
-</tr>
-<tr>
-<td>
-      110
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('46.29.25.2')">
-       کپی
-      </button>
-</td>
-<td>
-      46.29.25.2
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      111
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('103.69.224.5')">
-       کپی
-      </button>
-</td>
-<td>
-      103.69.224.5
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      112
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('103.69.224.6')">
-       کپی
-      </button>
-</td>
-<td>
-      103.69.224.6
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      113
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('103.69.224.2')">
-       کپی
-      </button>
-</td>
-<td>
-      103.69.224.2
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      114
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('103.69.224.4')">
-       کپی
-      </button>
-</td>
-<td>
-      103.69.224.4
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      115
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('46.29.25.6')">
-       کپی
-      </button>
-</td>
-<td>
-      46.29.25.6
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      116
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('62.112.9.164')">
-       کپی
-      </button>
-</td>
-<td>
-      62.112.9.164
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      117
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('138.199.7.129')">
-       کپی
-      </button>
-</td>
-<td>
-      138.199.7.129
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      118
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('46.29.25.3')">
-       کپی
-      </button>
-</td>
-<td>
-      46.29.25.3
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      119
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('185.107.44.110')">
-       کپی
-      </button>
-</td>
-<td>
-      185.107.44.110
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Netherlands" class="flag" src="https://flagcdn.com/w40/nl.png"/></div>
-      Netherlands
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      120
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('146.70.252.2')">
-       کپی
-      </button>
-</td>
-<td>
-      146.70.252.2
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/></div>
-      Nepal
-     </td>
-<td>
-      Asia
-     </td>
-</tr>
-<tr>
-<td>
-      121
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('45.83.125.1')">
-       کپی
-      </button>
-</td>
-<td>
-      45.83.125.1
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Nepal" class="flag" src="https://flagcdn.com/w40/np.png"/></div>
-      Nepal
-     </td>
-<td>
-      Asia
-     </td>
-</tr>
-<tr>
-<td>
-      122
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('185.229.25.116')">
-       کپی
-      </button>
-</td>
-<td>
-      185.229.25.116
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="North Macedonia" class="flag" src="https://flagcdn.com/w40/mk.png"/></div>
-      North Macedonia
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      123
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('185.76.11.27')">
-       کپی
-      </button>
-</td>
-<td>
-      185.76.11.27
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/></div>
-      Nigeria
-     </td>
-<td>
-      Africa
-     </td>
-</tr>
-<tr>
-<td>
-      124
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('79.127.149.65')">
-       کپی
-      </button>
-</td>
-<td>
-      79.127.149.65
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Nigeria" class="flag" src="https://flagcdn.com/w40/ng.png"/></div>
-      Nigeria
-     </td>
-<td>
-      Africa
-     </td>
-</tr>
-<tr>
-<td>
-      125
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('84.247.50.178')">
-       کپی
-      </button>
-</td>
-<td>
-      84.247.50.178
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
-      Norway
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      126
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('146.70.170.18')">
-       کپی
-      </button>
-</td>
-<td>
-      146.70.170.18
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
-      Norway
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      127
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('146.70.170.2')">
-       کپی
-      </button>
-</td>
-<td>
-      146.70.170.2
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
-      Norway
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      128
-     </td>
-<td>
-<button class="copyBtn" onclick="copyText('95.173.205.129')">
-       کپی
-      </button>
-</td>
-<td>
-      95.173.205.129
-     </td>
-<td>
-<div class="flag-wrapper"><img alt="Norway" class="flag" src="https://flagcdn.com/w40/no.png"/></div>
-      Norway
-     </td>
-<td>
-      Europe
-     </td>
-</tr>
-<tr>
-<td>
-      129
-     </td>
-<td>
-<button class="copyBtn" onclick="cop
+   
